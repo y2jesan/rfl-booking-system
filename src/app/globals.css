@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e5e7eb;
+  --color-primary: #ed1c24;
+  --color-primary-hover: #d41920;
+  --color-primary-text: #ffffff;
+  --color-muted: #6b7280;
+  --color-muted-bg: #f9fafb;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root,
+.light {
+  --background: var(--color-background);
+  --foreground: var(--color-foreground);
+  --card-bg: var(--color-card-bg);
+  --card-border: var(--color-card-border);
+  --primary: var(--color-primary);
+  --primary-hover: var(--color-primary-hover);
+  --primary-text: var(--color-primary-text);
+  --muted: var(--color-muted);
+  --muted-bg: var(--color-muted-bg);
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #fafafa;
+  --card-bg: #1a1a1a;
+  --card-border: #374151;
+  --primary: #ed1c24;
+  --primary-hover: #ff2a32;
+  --primary-text: #ffffff;
+  --muted: #9ca3af;
+  --muted-bg: #111827;
+}
+
+[data-theme='dark'] {
+  --background: #0f0f0f;
+  --foreground: #fafafa;
+  --card-bg: #1a1a1a;
+  --card-border: #374151;
+  --primary: #ed1c24;
+  --primary-hover: #ff2a32;
+  --primary-text: #ffffff;
+  --muted: #9ca3af;
+  --muted-bg: #111827;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom button styles for primary color */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(237, 28, 36, 0.3);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.2);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Fast tooltip styles */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-container:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  animation: tooltipFadeIn 0.1s ease-in-out;
+}
+
+.tooltip-container:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1f2937;
+  z-index: 1000;
+  animation: tooltipFadeIn 0.1s ease-in-out;
+}
+
+/* Hide tooltips on click and focus */
+.tooltip-container:active::after,
+.tooltip-container:focus::after,
+.tooltip-container:active::before,
+.tooltip-container:focus::before {
+  display: none;
+}
+
+/* Hide tooltips when button inside is clicked or focused */
+.tooltip-container button:active + ::after,
+.tooltip-container button:focus + ::after,
+.tooltip-container button:active + ::before,
+.tooltip-container button:focus + ::before {
+  display: none;
+}
+
+/* Alternative approach: hide tooltips when any child element is active/focused */
+.tooltip-container:has(button:active)::after,
+.tooltip-container:has(button:focus)::after,
+.tooltip-container:has(button:active)::before,
+.tooltip-container:has(button:focus)::before {
+  display: none;
+}
+
+/* Keyframes for tooltip fade-in effect */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Dark mode tooltip styles */
+[data-theme='dark'] .tooltip-container:hover::after {
+  background-color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .tooltip-container:hover::before {
+  border-top-color: #374151;
+}
+
+/* Remove focus rings from all buttons */
+button:focus,
+button:active,
+input:focus,
+input:active,
+select:focus,
+select:active,
+textarea:focus,
+textarea:active,
+a:focus,
+a:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus rings from button elements specifically */
+button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus rings from form elements */
+input,
+select,
+textarea {
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus rings from links */
+a {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+  box-shadow: none;
+}

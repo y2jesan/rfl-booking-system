@@ -1,0 +1,22 @@
+{
+  "name": "RFL Seek - Meeting Room Booking System",
+  "short_name": "RFL Seek",
+  "description": "Book and manage meeting rooms efficiently with RFL Seek",
+  "icons": [
+    {
+      "src": "/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ed1c24",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

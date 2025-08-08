@@ -1,0 +1,218 @@
+'use client';
+
+import Layout from '@/components/Layout';
+import { apiClient } from '@/lib/api';
+import { useAuth } from '@/lib/auth-context';
+import { ArrowLeftIcon, BuildingOfficeIcon, CalendarIcon, CheckCircleIcon, ChevronLeftIcon, ChevronRightIcon, CloudIcon, ComputerDesktopIcon, HomeModernIcon, SpeakerWaveIcon, TableCellsIcon, TvIcon, UsersIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { ComputerDesktopIcon as ComputerSolidIcon, WifiIcon as WifiSolidIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+interface MeetingRoom {
+  _id: string;
+  name: string;
+  description?: string;
+  capacity: number;
+  tables: number;
+  ac: number;
+  washroom: number;
+  podium: boolean;
+  soundSystem: boolean;
+  projector: boolean;
+  monitors: number;
+  tvs: number;
+  ethernet: boolean;
+  wifi: boolean;
+  images: Array<{
+    _id: string;
+    fileName: string;
+    url: string;
+  }>;
+}
+
+interface RoomResponse {
+  room: MeetingRoom;
+}
+
+export default function MeetingRoomDetailsPage() {
+  const { user, loading: authLoading } = useAuth();
+  const router = useRouter();
+  const params = useParams();
+  const roomId = params.id as string;
+
+  const [room, setRoom] = useState<MeetingRoom | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.push('/login');
+    }
+  }, [user, authLoading, router]);
+
+  useEffect(() => {
+    const fetchRoomDetails = async () => {
+      try {
+        const response = await apiClient.getMeetingRoom(roomId);
+        if (response.success && response.data) {
+          setRoom((response.data as RoomResponse).room);
+        } else {
+          setError(response.error?.message || 'Failed to fetch room details');
+        }
+      } catch (err) {
+        setError('An unexpected error occurred');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (user && roomId) {
+      fetchRoomDetails();
+    }
+  }, [user, roomId]);
+
+  if (authLoading || loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null; // Redirect handled by useEffect
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <div className="text-center py-12">
+          <XCircleIcon className="mx-auto h-12 w-12 text-red-500" />
+          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Error</h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{error}</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!room) {
+    return (
+      <Layout>
+        <div className="text-center py-12">
+          <BuildingOfficeIcon className="mx-auto h-12 w-12 text-gray-400" />
+          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Meeting Room Not Found</h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">The room you are looking for does not exist.</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  const renderAmenity = (label: string, value: boolean | number, Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>) => {
+    if (typeof value === 'boolean') {
+      return value ? (
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400">
+          <CheckCircleIcon className="h-3 w-3 mr-1" />
+          {label}
+        </span>
+      ) : (
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+          <XCircleIcon className="h-3 w-3 mr-1" />
+          No {label}
+        </span>
+      );
+    } else if (value > 0) {
+      return (
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
+          <Icon className="h-3 w-3 mr-1" />
+          {value} {label}
+        </span>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <Layout>
+      <div className="space-y-6">
+        {/* Header */}
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{room.name}</h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Details for {room.name}</p>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          {/* Image Carousel */}
+          {room.images && room.images.length > 0 ? (
+            <div className="relative mb-6 rounded-lg overflow-hidden">
+              <Image src={room.images[currentIndex].url} alt={`${room.name} - Image ${currentIndex + 1}`} width={800} height={450} className="rounded-lg object-cover w-full h-auto" />
+              {room.images.length > 1 && (
+                <>
+                  <button onClick={() => setCurrentIndex((prev) => (prev === 0 ? room.images.length - 1 : prev - 1))} className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                    <ChevronLeftIcon className="h-6 w-6" />
+                  </button>
+                  <button onClick={() => setCurrentIndex((prev) => (prev === room.images.length - 1 ? 0 : prev + 1))} className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                    <ChevronRightIcon className="h-6 w-6" />
+                  </button>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="mb-6 h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <BuildingOfficeIcon className="h-24 w-24 text-gray-400" />
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Room Information</h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{room.description || 'No description available.'}</p>
+              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+                <UsersIcon className="h-5 w-5 mr-2 text-primary" />
+                Capacity: <span className="font-medium ml-1">{room.capacity} people</span>
+              </div>
+              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+                <TableCellsIcon className="h-5 w-5 mr-2 text-primary" />
+                Tables: <span className="font-medium ml-1">{room.tables}</span>
+              </div>
+              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+                <CloudIcon className="h-5 w-5 mr-2 text-primary" />
+                AC Units: <span className="font-medium ml-1">{room.ac}</span>
+              </div>
+              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+                <HomeModernIcon className="h-5 w-5 mr-2 text-primary" />
+                Washrooms: <span className="font-medium ml-1">{room.washroom}</span>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Amenities</h2>
+              <div className="flex flex-wrap gap-2">
+                {renderAmenity('WiFi', room.wifi, WifiSolidIcon)}
+                {renderAmenity('Ethernet', room.ethernet, ComputerSolidIcon)}
+                {renderAmenity('Projector', room.projector, ComputerDesktopIcon)}
+                {renderAmenity('Sound System', room.soundSystem, SpeakerWaveIcon)}
+                {renderAmenity('Podium', room.podium, BuildingOfficeIcon)}
+                {renderAmenity('Monitors', room.monitors, TvIcon)}
+                {renderAmenity('TVs', room.tvs, TvIcon)}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-between items-center">
+            <button onClick={() => router.back()} className="inline-flex items-center p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" title="Go Back">
+              <ArrowLeftIcon className="h-5 w-5" />
+            </button>
+
+            <Link href={`/booking?roomId=${room._id}`} className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <CalendarIcon className="h-5 w-5 mr-2" />
+              Book This Room
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
