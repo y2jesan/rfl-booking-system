@@ -298,7 +298,7 @@ export default function AdminBookingsPage() {
           <div className="px-6 py-4 border-b border-border">
             <h2 className="text-lg font-medium text-foreground">All Bookings</h2>
           </div>
-          <div className="p-6">
+          <div className="p-4 lg:p-6">
             {error && (
               <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">

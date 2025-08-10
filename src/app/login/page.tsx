@@ -72,15 +72,9 @@ export default function LoginPage() {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center mb-6">
-            <Image
-              src="/rfl-seeklogo.png"
-              alt="RFL Seek"
-              width={200}
-              height={67}
-              className="h-16 w-auto"
-            />
+            <Image src="/rfl-seeklogo.png" alt="RFL Seek" width={200} height={67} className="h-16 w-auto" />
           </div>
-          <h2 className="text-center text-3xl font-extrabold text-foreground">Sign in to your account</h2>
+          <h2 className="text-center text-xl font-extrabold text-foreground">Sign in to your account</h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">Meeting Room Booking System</p>
         </div>
 
@@ -90,7 +84,7 @@ export default function LoginPage() {
               <label htmlFor="email" className="sr-only">
                 Email address
               </label>
-              <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-border placeholder-muted-foreground text-foreground bg-card rounded-t-md focus:outline-none focus:ring-ring focus:border-ring focus:z-10 sm:text-sm" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-border placeholder-muted-foreground text-foreground bg-card rounded-t-md focus:outline-none focus:ring-ring focus:border-ring focus:z-10 sm:text-md" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="relative">
               <label htmlFor="password" className="sr-only">

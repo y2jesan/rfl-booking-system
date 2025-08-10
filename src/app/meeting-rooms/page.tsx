@@ -228,7 +228,7 @@ export default function MeetingRoomsPage() {
                     </div>
                   )}
 
-                  <div className="p-6">
+                  <div className="p-4 lg:p-6">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{room.name}</h3>
                       <div className="flex items-center text-sm text-muted-foreground">

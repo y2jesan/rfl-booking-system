@@ -324,7 +324,7 @@ export default function AdminMeetingRoomsPage() {
           <div className="px-6 py-4 border-b border-border">
             <h2 className="text-lg font-medium text-foreground">All Meeting Rooms</h2>
           </div>
-          <div className="p-6">
+          <div className="p-4 lg:p-6">
             {error && (
               <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">
@@ -437,7 +437,7 @@ export default function AdminMeetingRoomsPage() {
         <div className="fixed inset-0 bg-black/60 overflow-y-auto h-full w-full z-50">
           <div className="min-h-full flex items-center justify-center p-4">
             <div className="relative bg-card border border-border rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
+              <div className="p-4 lg:p-6">
                 <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentRoom ? 'Edit Meeting Room' : 'Add New Meeting Room'}</h3>
                 <div className="mt-2 space-y-4">
                   <div>

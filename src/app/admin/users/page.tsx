@@ -282,7 +282,7 @@ export default function AdminUsersPage() {
               <input type="text" className="block w-48 sm:w-64 pl-10 pr-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground text-sm" placeholder="Search users by email..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
           </div>
-          <div className="p-6">
+          <div className="p-4 lg:p-6">
             {error && (
               <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">

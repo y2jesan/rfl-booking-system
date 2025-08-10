@@ -176,7 +176,7 @@ export default function HistoryPage() {
             <h2 className="text-lg font-medium text-foreground">Your Bookings</h2>
           </div>
 
-          <div className="p-6">
+          <div className="p-4 lg:p-6">
             {loadingBookings ? (
               <div className="space-y-4">
                 {[...Array(5)].map((_, i) => (
