@@ -245,12 +245,12 @@ export default function AdminBookingsPage() {
           </div>
           <div className="flex items-center space-x-2">
             {/* Mobile Add Booking Button */}
-            <button onClick={handleAddBooking} className="sm:hidden inline-flex items-center justify-center w-10 h-10 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+            <button onClick={handleAddBooking} className="sm:hidden inline-flex items-center justify-center w-10 h-10 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               <PlusIcon className="h-5 w-5" />
             </button>
 
             {/* Desktop Add Booking Button */}
-            <button onClick={handleAddBooking} className="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+            <button onClick={handleAddBooking} className="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               <PlusIcon className="h-5 w-5 mr-2" />
               Add Booking
             </button>
@@ -442,10 +442,10 @@ export default function AdminBookingsPage() {
               )}
             </div>
             <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-              <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleSubmitAction}>
+              <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleSubmitAction}>
                 {confirmRejectAction === 'confirm' ? 'Confirm' : confirmRejectAction === 'reject' ? 'Reject' : confirmRejectAction === 'approve_reschedule' ? 'Approve' : 'Reject'}
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowConfirmRejectModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowConfirmRejectModal(false)}>
                 Cancel
               </button>
             </div>

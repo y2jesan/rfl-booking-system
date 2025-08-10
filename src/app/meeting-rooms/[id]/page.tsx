@@ -159,11 +159,11 @@ export default function MeetingRoomDetailsPage() {
                   {room.images.length > 1 && (
                     <>
                       <button onClick={() => setCurrentIndex((prev) => (prev === 0 ? room.images.length - 1 : prev - 1))} 
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
                         <ChevronLeftIcon className="h-6 w-6" />
                       </button>
                       <button onClick={() => setCurrentIndex((prev) => (prev === room.images.length - 1 ? 0 : prev + 1))} 
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
                         <ChevronRightIcon className="h-6 w-6" />
                       </button>
                     </>
@@ -222,7 +222,7 @@ export default function MeetingRoomDetailsPage() {
                   <div className="flex justify-between items-center pt-4 mt-auto">
                     <button 
                       onClick={() => router.back()} 
-                      className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" 
+                      className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" 
                       title="Go Back"
                     >
                       <ArrowLeftIcon className="h-5 w-5" />
@@ -230,7 +230,7 @@ export default function MeetingRoomDetailsPage() {
 
                     <Link 
                       href={`/booking?roomId=${room._id}`} 
-                      className="inline-flex items-center p-2 border border-transparent rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                      className="inline-flex items-center p-2 border border-transparent rounded-md text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                     >
                       <CalendarIcon className="h-5 w-5 mr-2" />
                       <span>Book This Room</span>

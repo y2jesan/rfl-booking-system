@@ -117,13 +117,13 @@ export default function DashboardPage() {
               <p className="hidden sm:block mt-1 text-sm text-muted-foreground">Manage your meeting room bookings</p>
             </div>
             <div className="sm:hidden">
-              <Link href="/booking" className="inline-flex items-center justify-center w-10 h-10 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
+              <Link href="/booking" className="inline-flex items-center justify-center w-10 h-10 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
                 <PlusIcon className="h-5 w-5" />
               </Link>
             </div>
           </div>
           <div className="mt-4 sm:mt-0 hidden sm:block">
-            <Link href="/booking" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
+            <Link href="/booking" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
               <PlusIcon className="h-4 w-4 mr-2" />
               New Booking
             </Link>
@@ -200,7 +200,7 @@ export default function DashboardPage() {
                 <h3 className="mt-2 text-sm font-medium text-card-foreground">No upcoming bookings</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Get started by booking a meeting room.</p>
                 <div className="mt-6">
-                  <Link href="/booking" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
+                  <Link href="/booking" className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring">
                     <PlusIcon className="h-4 w-4 mr-2" />
                     Book Room
                   </Link>

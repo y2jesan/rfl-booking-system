@@ -127,7 +127,7 @@ export default function HistoryPage() {
           </div>
           <div className="sm:hidden">
             <Tooltip content="Toggle Filters">
-              <button onClick={() => setShowFilters(!showFilters)} className="inline-flex items-center p-2 border border-border text-sm font-medium rounded-md text-primary bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setShowFilters(!showFilters)} className="inline-flex items-center p-2 border border-border text-sm font-medium rounded-md text-primary bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 <FunnelIcon className="h-5 w-5" />
               </button>
             </Tooltip>

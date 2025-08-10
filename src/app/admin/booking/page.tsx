@@ -347,7 +347,7 @@ export default function AdminCreateBookingPage() {
               <textarea id="purpose" rows={3} className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={purpose} onChange={(e) => setPurpose(e.target.value)}></textarea>
             </div>
 
-            <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:text-sm" disabled={submitting}>
+            <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:text-sm" disabled={submitting}>
               {submitting ? <ArrowPathIcon className="h-5 w-5 mr-2 animate-spin" /> : <CalendarIcon className="h-5 w-5 mr-2" />}
               {submitting ? 'Creating Booking...' : 'Create Booking'}
             </button>

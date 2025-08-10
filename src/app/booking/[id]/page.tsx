@@ -423,7 +423,7 @@ export default function BookingDetailsPage() {
           <div className="flex justify-between items-center mt-8">
             <button 
               onClick={() => router.back()} 
-              className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" 
+              className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" 
               title="Go Back"
             >
               <ArrowLeftIcon className="h-5 w-5" />
@@ -518,10 +518,10 @@ export default function BookingDetailsPage() {
               )}
             </div>
             <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-              <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleReschedule} disabled={!newRescheduleRoomId || !newRescheduleDate || !newRescheduleStartTime || !newRescheduleEndTime || !isValidTimeRange(newRescheduleStartTime, newRescheduleEndTime) || isTimeSlotBooked(newRescheduleStartTime, newRescheduleEndTime)}>
+              <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleReschedule} disabled={!newRescheduleRoomId || !newRescheduleDate || !newRescheduleStartTime || !newRescheduleEndTime || !isValidTimeRange(newRescheduleStartTime, newRescheduleEndTime) || isTimeSlotBooked(newRescheduleStartTime, newRescheduleEndTime)}>
                 Submit Reschedule Request
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowRescheduleModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowRescheduleModal(false)}>
                 Cancel
               </button>
             </div>
@@ -558,7 +558,7 @@ export default function BookingDetailsPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleCancel}>
                 Confirm Cancellation
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowCancelModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowCancelModal(false)}>
                 Cancel
               </button>
             </div>

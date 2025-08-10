@@ -27,7 +27,7 @@ export default function PrimaryButton({
     inline-flex items-center justify-center
     font-medium rounded-md
     bg-primary text-primary-foreground
-    hover:bg-primary/90
+    hover:bg-primary/80
     focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed
     transition-all duration-300 ease-in-out

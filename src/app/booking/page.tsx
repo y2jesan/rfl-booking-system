@@ -328,10 +328,10 @@ export default function BookingWizardPage() {
             )}
 
             <div className="flex justify-between mt-6">
-              <button onClick={() => setStep(1)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setStep(1)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Previous
               </button>
-              <button onClick={() => setStep(3)} disabled={!selectedStartTime || !selectedEndTime || !isValidTimeRange(selectedStartTime, selectedEndTime) || isTimeSlotBooked(selectedStartTime, selectedEndTime)} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed">
+              <button onClick={() => setStep(3)} disabled={!selectedStartTime || !selectedEndTime || !isValidTimeRange(selectedStartTime, selectedEndTime) || isTimeSlotBooked(selectedStartTime, selectedEndTime)} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed">
                 Next
               </button>
             </div>
@@ -378,10 +378,10 @@ export default function BookingWizardPage() {
             )}
 
             <div className="flex justify-between mt-6">
-              <button onClick={() => setStep(2)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setStep(2)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Previous
               </button>
-              <button onClick={handleBookingSubmit} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={handleBookingSubmit} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Confirm Booking
               </button>
             </div>
@@ -394,7 +394,7 @@ export default function BookingWizardPage() {
             <CheckCircleIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
             <h2 className="text-xl font-semibold text-foreground mb-2">Booking Successful!</h2>
             <p className="text-secondary-foreground mb-6">{successMessage}</p>
-            <Link href="/" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+            <Link href="/" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               Go to Dashboard
             </Link>
           </div>

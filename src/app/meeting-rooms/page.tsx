@@ -125,7 +125,7 @@ export default function MeetingRoomsPage() {
           </div>
           <div className="sm:hidden">
             <Tooltip content="Toggle Filters">
-              <button onClick={() => setShowFilters(!showFilters)} className="inline-flex items-center p-2 border border-border text-sm font-medium rounded-md text-primary bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setShowFilters(!showFilters)} className="inline-flex items-center p-2 border border-border text-sm font-medium rounded-md text-primary bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 <FunnelIcon className="h-5 w-5" />
               </button>
             </Tooltip>
@@ -189,7 +189,7 @@ export default function MeetingRoomsPage() {
           </div>
 
           <div className="mt-4 flex justify-end">
-            <button onClick={clearFilters} className="px-4 py-2 text-sm font-medium text-secondary-foreground bg-muted border border-border rounded-md shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+            <button onClick={clearFilters} className="px-4 py-2 text-sm font-medium text-secondary-foreground bg-muted border border-border rounded-md shadow-sm hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               Clear Filters
             </button>
           </div>
@@ -277,7 +277,7 @@ export default function MeetingRoomsPage() {
                       {/* Book Button */}
                       <div className="ml-2">
                         <Tooltip content="Book This Room">
-                          <Link href={`/booking?roomId=${room._id}`} onClick={(e) => e.stopPropagation()} className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                          <Link href={`/booking?roomId=${room._id}`} onClick={(e) => e.stopPropagation()} className="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
                             <CalendarIcon className="h-4 w-4 mr-1" />
                             Book
                           </Link>
