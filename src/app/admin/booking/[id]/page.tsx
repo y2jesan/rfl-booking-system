@@ -452,7 +452,7 @@ export default function BookingDetailsPage() {
           <p className="mt-1 text-sm text-muted-foreground">Details for booking ID: {booking._id}</p>
         </div>
 
-        <div className="bg-card shadow rounded-lg border border-border p-6">
+        <div className="lg:w-1/2 bg-card shadow rounded-lg border border-border p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Booking Information</h2>
