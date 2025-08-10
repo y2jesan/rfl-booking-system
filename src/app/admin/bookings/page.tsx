@@ -200,17 +200,17 @@ export default function AdminBookingsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'CONFIRMED':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400';
+        return 'bg-green-100 text-green-800 dark:bg-green-900/10 dark:text-green-400';
       case 'PENDING':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400';
+        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/10 dark:text-yellow-400';
       case 'RESCHEDULE_REQUESTED':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/10 dark:text-blue-400';
       case 'CANCELLED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       case 'REJECTED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/10 dark:text-gray-400';
     }
   };
 
@@ -227,8 +227,8 @@ export default function AdminBookingsPage() {
       <AdminLayout>
         <div className="text-center py-12">
           <ExclamationCircleIcon className="mx-auto h-12 w-12 text-red-500" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Access Denied</h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">You do not have permission to view this page.</p>
+          <h3 className="mt-2 text-lg font-medium text-foreground">Access Denied</h3>
+          <p className="mt-1 text-sm text-muted-foreground">You do not have permission to view this page.</p>
         </div>
       </AdminLayout>
     );
@@ -240,8 +240,8 @@ export default function AdminBookingsPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Booking Management</h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Manage all meeting room bookings</p>
+            <h1 className="text-2xl font-bold text-foreground">Booking Management</h1>
+            <p className="mt-1 text-sm text-muted-foreground">Manage all meeting room bookings</p>
           </div>
           <div className="flex items-center space-x-2">
             {/* Mobile Add Booking Button */}
@@ -258,13 +258,13 @@ export default function AdminBookingsPage() {
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-card shadow rounded-lg border border-border p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="status-filter" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="status-filter" className="block text-sm font-medium text-secondary-foreground">
                 Filter by Status
               </label>
-              <select id="status-filter" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+              <select id="status-filter" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
                 <option value="all">All Statuses</option>
                 <option value="CONFIRMED">Confirmed</option>
                 <option value="PENDING">Pending</option>
@@ -274,33 +274,33 @@ export default function AdminBookingsPage() {
               </select>
             </div>
             <div>
-              <label htmlFor="date-filter" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="date-filter" className="block text-sm font-medium text-secondary-foreground">
                 Filter by Date
               </label>
-              <input type="date" id="date-filter" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
+              <input type="date" id="date-filter" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} />
             </div>
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="search" className="block text-sm font-medium text-secondary-foreground">
                 Search Bookings
               </label>
               <div className="mt-1 relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                   <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </div>
-                <input type="text" name="search" id="search" className="block w-full px-3 py-2 pl-10 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" placeholder="Search by room name, user email or purpose" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                <input type="text" name="search" id="search" className="block w-full px-3 py-2 pl-10 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground text-sm" placeholder="Search by room name, user email or purpose" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               </div>
             </div>
           </div>
         </div>
 
         {/* Booking List */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700">
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-lg font-medium text-gray-900 dark:text-white">All Bookings</h2>
+        <div className="bg-card shadow rounded-lg border border-border">
+          <div className="px-6 py-4 border-b border-border">
+            <h2 className="text-lg font-medium text-foreground">All Bookings</h2>
           </div>
           <div className="p-6">
             {error && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4 mb-4">
+              <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -315,7 +315,7 @@ export default function AdminBookingsPage() {
               </div>
             )}
             {modalSuccess && (
-              <div className="rounded-md bg-green-50 dark:bg-green-900/20 p-4 mb-4">
+              <div className="rounded-md bg-green-50 dark:bg-green-900/10 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
@@ -332,27 +332,27 @@ export default function AdminBookingsPage() {
             {bookings.length === 0 ? (
               <div className="text-center py-8">
                 <CalendarIcon className="mx-auto h-12 w-12 text-gray-400" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No bookings found</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Adjust your filters or add new bookings.</p>
+                <h3 className="mt-2 text-sm font-medium text-foreground">No bookings found</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Adjust your filters or add new bookings.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-700">
+                  <thead className="bg-muted">
                     <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Room
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         User
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Date
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Time
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Status
                       </th>
                       <th scope="col" className="relative px-6 py-3">
@@ -360,23 +360,23 @@ export default function AdminBookingsPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tbody className="bg-card divide-y divide-gray-200 dark:divide-gray-700">
                     {bookings.map((booking) => (
                       <tr key={booking._id}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-medium text-gray-900 dark:text-white">{booking.roomId.name}</div>
+                          <div className="text-sm font-medium text-foreground">{booking.roomId.name}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900 dark:text-white">{booking.userId.email}</div>
+                          <div className="text-sm text-foreground">{booking.userId.email}</div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{format(parseISO(booking.date), 'MMM dd, yyyy')}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">{format(parseISO(booking.date), 'MMM dd, yyyy')}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">
                           {minutesToTimeAMPM(booking.startMinutes)} - {minutesToTimeAMPM(booking.endMinutes)}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(booking.status)}`}>{booking.status.replace('_', ' ')}</span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium ">
                           {booking.status === 'PENDING' && (
                             <>
                               <button onClick={() => handleAction(booking, 'confirm')} className="text-green-600 hover:text-green-800 mr-3" title="Confirm Booking">
@@ -397,7 +397,7 @@ export default function AdminBookingsPage() {
                               </button>
                             </>
                           )}
-                          <Link href={`/admin/booking/${booking._id}`} className="inline-flex items-center px-2 py-1 border border-gray-300 dark:border-gray-600 rounded text-primary hover:text-primary/80 hover:bg-gray-50 dark:hover:bg-gray-700 mr-3" title="View Details">
+                          <Link href={`/admin/booking/${booking._id}`} className="inline-flex items-center px-2 py-1 border border-border rounded text-primary hover:text-primary/80 hover:bg-gray-50 dark:hover:bg-gray-700 mr-3" title="View Details">
                             <EyeIcon className="h-4 w-4" />
                           </Link>
                         </td>
@@ -414,22 +414,22 @@ export default function AdminBookingsPage() {
       {/* Confirm/Reject Modal */}
       {showConfirmRejectModal && currentBooking && confirmRejectAction && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">{confirmRejectAction === 'confirm' ? 'Confirm Booking' : confirmRejectAction === 'reject' ? 'Reject Booking' : confirmRejectAction === 'approve_reschedule' ? 'Approve Reschedule' : 'Reject Reschedule'}</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{confirmRejectAction === 'confirm' ? 'Confirm Booking' : confirmRejectAction === 'reject' ? 'Reject Booking' : confirmRejectAction === 'approve_reschedule' ? 'Approve Reschedule' : 'Reject Reschedule'}</h3>
             <div className="mt-2">
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-sm text-secondary-foreground mb-4">
                 Are you sure you want to {confirmRejectAction.replace('_', ' ')} this booking for <span className="font-semibold">{currentBooking.roomId.name}</span> on <span className="font-semibold">{format(parseISO(currentBooking.date), 'MMM dd, yyyy')}</span>?
               </p>
               {(confirmRejectAction === 'reject' || confirmRejectAction === 'reject_reschedule') && (
                 <div>
-                  <label htmlFor="reason" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <label htmlFor="reason" className="block text-sm font-medium text-secondary-foreground">
                     Reason
                   </label>
-                  <textarea id="reason" rows={3} className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={reason} onChange={(e) => setReason(e.target.value)} required></textarea>
+                  <textarea id="reason" rows={3} className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={reason} onChange={(e) => setReason(e.target.value)} required></textarea>
                 </div>
               )}
               {modalError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3 mt-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3 mt-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -445,7 +445,7 @@ export default function AdminBookingsPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleSubmitAction}>
                 {confirmRejectAction === 'confirm' ? 'Confirm' : confirmRejectAction === 'reject' ? 'Reject' : confirmRejectAction === 'approve_reschedule' ? 'Approve' : 'Reject'}
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowConfirmRejectModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowConfirmRejectModal(false)}>
                 Cancel
               </button>
             </div>

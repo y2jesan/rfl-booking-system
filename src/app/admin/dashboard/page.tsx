@@ -148,17 +148,17 @@ export default function AdminDashboardPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'CONFIRMED':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400';
+        return 'bg-green-100 text-green-800 dark:bg-green-900/10 dark:text-green-400';
       case 'PENDING':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400';
+        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/10 dark:text-yellow-400';
       case 'RESCHEDULE_REQUESTED':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/10 dark:text-blue-400';
       case 'CANCELLED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       case 'REJECTED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/10 dark:text-gray-400';
     }
   };
 
@@ -184,14 +184,14 @@ export default function AdminDashboardPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Admin Dashboard</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Overview of the RFL Meeting Room Booking System</p>
+          <h1 className="text-2xl font-bold text-foreground">Admin Dashboard</h1>
+          <p className="mt-1 text-sm text-muted-foreground">Overview of the RFL Meeting Room Booking System</p>
         </div>
 
         {/* Stats Cards */}
         {stats && (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/admin/users" className="group bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
+            <Link href="/admin/users" className="group bg-card overflow-hidden shadow rounded-lg border border-border hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
@@ -199,15 +199,15 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Total Users</dt>
-                      <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.totalUsers}</dd>
+                      <dt className="text-sm font-medium text-muted-foreground truncate">Total Users</dt>
+                      <dd className="text-lg font-medium text-foreground">{stats.totalUsers}</dd>
                     </dl>
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/admin/meeting-rooms" className="group bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
+            <Link href="/admin/meeting-rooms" className="group bg-card overflow-hidden shadow rounded-lg border border-border hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
@@ -215,15 +215,15 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Meeting Rooms</dt>
-                      <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.totalRooms}</dd>
+                      <dt className="text-sm font-medium text-muted-foreground truncate">Meeting Rooms</dt>
+                      <dd className="text-lg font-medium text-foreground">{stats.totalRooms}</dd>
                     </dl>
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/admin/bookings" className="group bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
+            <Link href="/admin/bookings" className="group bg-card overflow-hidden shadow rounded-lg border border-border hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
@@ -231,15 +231,15 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Total Bookings</dt>
-                      <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.totalBookings}</dd>
+                      <dt className="text-sm font-medium text-muted-foreground truncate">Total Bookings</dt>
+                      <dd className="text-lg font-medium text-foreground">{stats.totalBookings}</dd>
                     </dl>
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/admin/bookings?status=PENDING" className="group bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
+            <Link href="/admin/bookings?status=PENDING" className="group bg-card overflow-hidden shadow rounded-lg border border-border hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer">
               <div className="p-5">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
@@ -247,8 +247,8 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Pending Bookings</dt>
-                      <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.pendingBookings}</dd>
+                      <dt className="text-sm font-medium text-muted-foreground truncate">Pending Bookings</dt>
+                      <dd className="text-lg font-medium text-foreground">{stats.pendingBookings}</dd>
                     </dl>
                   </div>
                 </div>
@@ -259,38 +259,38 @@ export default function AdminDashboardPage() {
 
         {/* Booking Status Overview */}
         {stats && (
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700">
-            <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-              <h2 className="text-lg font-medium text-gray-900 dark:text-white">Booking Status Overview</h2>
+          <div className="bg-card shadow rounded-lg border border-border">
+            <div className="px-6 py-4 border-b border-border">
+              <h2 className="text-lg font-medium text-foreground">Booking Status Overview</h2>
             </div>
             <div className="p-6 sm:p-6 md:p-4">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="flex items-center">
                   <CalendarIcon className="h-8 w-8 text-blue-500 mr-3" />
                   <div>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total</p>
-                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">{stats.totalBookings}</p>
+                    <p className="text-sm font-medium text-muted-foreground">Total</p>
+                    <p className="text-2xl font-semibold text-foreground">{stats.totalBookings}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <CheckCircleIcon className="h-8 w-8 text-green-500 mr-3" />
                   <div>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Confirmed</p>
-                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">{stats.confirmedBookings}</p>
+                    <p className="text-sm font-medium text-muted-foreground">Confirmed</p>
+                    <p className="text-2xl font-semibold text-foreground">{stats.confirmedBookings}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <ClockIcon className="h-8 w-8 text-yellow-500 mr-3" />
                   <div>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Pending</p>
-                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">{stats.pendingBookings}</p>
+                    <p className="text-sm font-medium text-muted-foreground">Pending</p>
+                    <p className="text-2xl font-semibold text-foreground">{stats.pendingBookings}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <XCircleIcon className="h-8 w-8 text-red-500 mr-3" />
                   <div>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Rejected</p>
-                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">{stats.rejectedBookings}</p>
+                    <p className="text-sm font-medium text-muted-foreground">Rejected</p>
+                    <p className="text-2xl font-semibold text-foreground">{stats.rejectedBookings}</p>
                   </div>
                 </div>
               </div>
@@ -299,16 +299,16 @@ export default function AdminDashboardPage() {
         )}
 
         {/* Recent Bookings */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700">
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Recent Bookings</h2>
+        <div className="bg-card shadow rounded-lg border border-border">
+          <div className="px-6 py-4 border-b border-border">
+            <h2 className="text-lg font-medium text-foreground">Recent Bookings</h2>
           </div>
           <div className="p-4 sm:p-6 md:p-4">
             {recentBookings.length === 0 ? (
               <div className="text-center py-8">
                 <CalendarIcon className="mx-auto h-12 w-12 text-gray-400" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No recent bookings</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Recent booking activity will appear here.</p>
+                <h3 className="mt-2 text-sm font-medium text-foreground">No recent bookings</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Recent booking activity will appear here.</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -316,19 +316,19 @@ export default function AdminDashboardPage() {
                   <Link
                     key={booking._id}
                     href={`/admin/booking/${booking._id}`}
-                    className="group block border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:shadow-md transition-all duration-200 cursor-pointer"
+                    className="group block border border-border rounded-lg p-4 hover:bg-muted hover:shadow-md transition-all duration-200 cursor-pointer"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2">
-                          <h3 className="text-sm font-medium text-gray-900 dark:text-white">{booking.roomId.name}</h3>
+                          <h3 className="text-sm font-medium text-foreground">{booking.roomId.name}</h3>
                           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(booking.status)}`}>{booking.status.replace('_', ' ')}</span>
                         </div>
-                        <div className="flex items-center space-x-1 mt-1 text-sm text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center space-x-1 mt-1 text-sm text-muted-foreground">
                           <UsersIcon className="h-4 w-4" />
                           <span>{booking.userId.email}</span>
                         </div>
-                        <div className="mt-1 flex items-center text-sm text-gray-500 dark:text-gray-400">
+                        <div className="mt-1 flex items-center text-sm text-muted-foreground">
                           <CalendarIcon className="h-4 w-4 mr-1" />
                           {new Date(booking.date).toLocaleDateString()}
                           <ClockIcon className="h-4 w-4 ml-4 mr-1" />

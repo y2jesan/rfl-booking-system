@@ -9,15 +9,15 @@ export default function ThemeToggle() {
   // Don't render until mounted to prevent hydration mismatch
   if (!mounted) {
     return (
-      <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-all duration-300 ease-in-out hover:scale-105" aria-label="Toggle theme">
-        <SunIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+      <button className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 border border-border transition-all duration-300 ease-in-out hover:scale-105" aria-label="Toggle theme">
+        <SunIcon className="h-5 w-5 text-secondary-foreground" />
       </button>
     );
   }
 
   return (
-    <button onClick={toggleTheme} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-all duration-300 ease-in-out hover:scale-105" aria-label="Toggle theme">
-      {theme === 'dark' ? <MoonIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" /> : <SunIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />}
+    <button onClick={toggleTheme} className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 border border-border transition-all duration-300 ease-in-out hover:scale-105" aria-label="Toggle theme">
+      {theme === 'dark' ? <MoonIcon className="h-5 w-5 text-secondary-foreground" /> : <SunIcon className="h-5 w-5 text-secondary-foreground" />}
     </button>
   );
 }

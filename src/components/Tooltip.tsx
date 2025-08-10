@@ -54,7 +54,7 @@ export default function Tooltip({ content, children, className = '' }: TooltipPr
       {children}
       {isVisible && (
         <div
-          className="absolute z-50 px-3 py-2 text-sm text-white bg-gray-800 dark:bg-gray-200 dark:text-gray-800 rounded-md shadow-lg whitespace-nowrap pointer-events-none"
+          className="absolute z-50 px-3 py-2 text-sm bg-card text-card-foreground rounded-md shadow-lg whitespace-nowrap pointer-events-none"
           style={{
             left: '50%',
             bottom: '100%',
@@ -62,7 +62,7 @@ export default function Tooltip({ content, children, className = '' }: TooltipPr
             marginBottom: '5px',
           }}>
           {content}
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800 dark:border-t-gray-200" style={{ marginTop: '-1px' }} />
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-border dark:border-t-border" style={{ marginTop: '-1px' }} />
         </div>
       )}
     </div>

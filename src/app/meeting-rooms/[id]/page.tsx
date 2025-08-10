@@ -91,8 +91,8 @@ export default function MeetingRoomDetailsPage() {
       <Layout>
         <div className="text-center py-12">
           <XCircleIcon className="mx-auto h-12 w-12 text-red-500" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Error</h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{error}</p>
+          <h3 className="mt-2 text-lg font-medium text-foreground">Error</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{error}</p>
         </div>
       </Layout>
     );
@@ -103,8 +103,8 @@ export default function MeetingRoomDetailsPage() {
       <Layout>
         <div className="text-center py-12">
           <BuildingOfficeIcon className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Meeting Room Not Found</h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">The room you are looking for does not exist.</p>
+          <h3 className="mt-2 text-lg font-medium text-foreground">Meeting Room Not Found</h3>
+          <p className="mt-1 text-sm text-muted-foreground">The room you are looking for does not exist.</p>
         </div>
       </Layout>
     );
@@ -113,19 +113,19 @@ export default function MeetingRoomDetailsPage() {
   const renderAmenity = (label: string, value: boolean | number, Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>) => {
     if (typeof value === 'boolean') {
       return value ? (
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/10 dark:text-green-400">
           <CheckCircleIcon className="h-3 w-3 mr-1" />
           {label}
         </span>
       ) : (
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400">
           <XCircleIcon className="h-3 w-3 mr-1" />
           No {label}
         </span>
       );
     } else if (value > 0) {
       return (
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/10 dark:text-blue-400">
           <Icon className="h-3 w-3 mr-1" />
           {value} {label}
         </span>
@@ -139,56 +139,56 @@ export default function MeetingRoomDetailsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{room.name}</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Details for {room.name}</p>
+          <h1 className="text-2xl font-bold text-foreground">{room.name}</h1>
+          <p className="mt-1 text-sm text-muted-foreground">Details for {room.name}</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-card shadow rounded-lg border border-border p-6">
           {/* Image Carousel */}
           {room.images && room.images.length > 0 ? (
             <div className="relative mb-6 rounded-lg overflow-hidden">
               <Image src={room.images[currentIndex].url} alt={`${room.name} - Image ${currentIndex + 1}`} width={800} height={450} className="rounded-lg object-cover w-full h-auto" />
               {room.images.length > 1 && (
                 <>
-                  <button onClick={() => setCurrentIndex((prev) => (prev === 0 ? room.images.length - 1 : prev - 1))} className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                  <button onClick={() => setCurrentIndex((prev) => (prev === 0 ? room.images.length - 1 : prev - 1))} className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
                     <ChevronLeftIcon className="h-6 w-6" />
                   </button>
-                  <button onClick={() => setCurrentIndex((prev) => (prev === room.images.length - 1 ? 0 : prev + 1))} className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
+                  <button onClick={() => setCurrentIndex((prev) => (prev === room.images.length - 1 ? 0 : prev + 1))} className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-border text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none rounded-full hover:bg-opacity-75 transition-all">
                     <ChevronRightIcon className="h-6 w-6" />
                   </button>
                 </>
               )}
             </div>
           ) : (
-            <div className="mb-6 h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+            <div className="mb-6 h-64 bg-muted rounded-lg flex items-center justify-center">
               <BuildingOfficeIcon className="h-24 w-24 text-gray-400" />
             </div>
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Room Information</h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{room.description || 'No description available.'}</p>
-              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+              <h2 className="text-xl font-semibold text-foreground mb-3">Room Information</h2>
+              <p className="text-secondary-foreground mb-4">{room.description || 'No description available.'}</p>
+              <div className="flex items-center text-secondary-foreground mb-2">
                 <UsersIcon className="h-5 w-5 mr-2 text-primary" />
                 Capacity: <span className="font-medium ml-1">{room.capacity} people</span>
               </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+              <div className="flex items-center text-secondary-foreground mb-2">
                 <TableCellsIcon className="h-5 w-5 mr-2 text-primary" />
                 Tables: <span className="font-medium ml-1">{room.tables}</span>
               </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+              <div className="flex items-center text-secondary-foreground mb-2">
                 <CloudIcon className="h-5 w-5 mr-2 text-primary" />
                 AC Units: <span className="font-medium ml-1">{room.ac}</span>
               </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
+              <div className="flex items-center text-secondary-foreground mb-2">
                 <HomeModernIcon className="h-5 w-5 mr-2 text-primary" />
                 Washrooms: <span className="font-medium ml-1">{room.washroom}</span>
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Amenities</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Amenities</h2>
               <div className="flex flex-wrap gap-2">
                 {renderAmenity('WiFi', room.wifi, WifiSolidIcon)}
                 {renderAmenity('Ethernet', room.ethernet, ComputerSolidIcon)}
@@ -202,7 +202,7 @@ export default function MeetingRoomDetailsPage() {
           </div>
 
           <div className="mt-8 flex justify-between items-center">
-            <button onClick={() => router.back()} className="inline-flex items-center p-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" title="Go Back">
+            <button onClick={() => router.back()} className="inline-flex items-center p-2 border border-border text-sm font-medium rounded-md text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" title="Go Back">
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
 

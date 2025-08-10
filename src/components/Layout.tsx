@@ -40,10 +40,10 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background">
       {/* Mobile header */}
       <div className="lg:hidden">
-        <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow">
+        <div className="flex items-center justify-between p-4 bg-card shadow">
           <div className="flex items-center">
             <ThemeToggle />
           </div>
@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex items-center">
             <button
               onClick={handleLogout}
-              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="p-2 text-muted-foreground hover:text-foreground"
             >
               <ArrowRightOnRectangleIcon className="h-6 w-6" />
             </button>
@@ -72,7 +72,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className="lg:flex">
         {/* Desktop sidebar */}
         <div className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
-          <div className="flex flex-col flex-grow bg-white dark:bg-gray-800 shadow-lg">
+          <div className="flex flex-col flex-grow bg-card shadow-lg">
             <div className="flex items-center justify-between p-6">
               <div className="flex items-center">
                 <Link href="/">
@@ -97,8 +97,8 @@ export default function Layout({ children }: LayoutProps) {
                     href={item.href}
                     className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                       isActive
-                        ? 'bg-primary text-white'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-card-foreground hover:bg-accent hover:text-accent-foreground'
                     }`}
                   >
                     <item.icon className="mr-3 h-5 w-5" />
@@ -108,19 +108,19 @@ export default function Layout({ children }: LayoutProps) {
               })}
             </nav>
 
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="p-4 border-t border-border">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  <p className="text-sm font-medium text-card-foreground">
                     {user.email}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-muted-foreground">
                     {user.role}
                   </p>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  className="p-2 text-muted-foreground hover:text-foreground"
                 >
                   <ArrowRightOnRectangleIcon className="h-5 w-5" />
                 </button>
@@ -138,7 +138,7 @@ export default function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Mobile bottom navigation */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border">
         <nav className="flex">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
@@ -149,7 +149,7 @@ export default function Layout({ children }: LayoutProps) {
                 className={`flex-1 flex flex-col items-center py-2 px-1 text-xs ${
                   isActive
                     ? 'text-primary'
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-muted-foreground'
                 }`}
               >
                 <item.icon className="h-6 w-6 mb-1" />

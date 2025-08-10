@@ -19,10 +19,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme);
-      document.documentElement.setAttribute('data-theme', storedTheme);
+      document.documentElement.className = storedTheme;
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.className = 'dark';
     }
   }, []);
 
@@ -30,7 +30,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', newTheme);
-      document.documentElement.setAttribute('data-theme', newTheme);
+      document.documentElement.className = newTheme;
       setTimeout(() => {
         window.dispatchEvent(new Event('theme-change'));
       }, 0);

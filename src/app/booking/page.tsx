@@ -214,25 +214,25 @@ export default function BookingWizardPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Book a Meeting Room</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Follow the steps to reserve your space</p>
+          <h1 className="text-2xl font-bold text-foreground">Book a Meeting Room</h1>
+          <p className="mt-1 text-sm text-muted-foreground">Follow the steps to reserve your space</p>
         </div>
 
         {/* Progress Stepper */}
-        <div className="flex justify-between items-center text-sm font-medium text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between items-center text-sm font-medium text-muted-foreground">
           <div className={`flex-1 text-center ${step >= 1 ? 'text-primary' : ''}`}>1. Select Room</div>
-          <div className="w-8 border-t border-gray-300 dark:border-gray-600"></div>
+          <div className="w-8 border-t border-border"></div>
           <div className={`flex-1 text-center ${step >= 2 ? 'text-primary' : ''}`}>2. Select Date & Time</div>
-          <div className="w-8 border-t border-gray-300 dark:border-gray-600"></div>
+          <div className="w-8 border-t border-border"></div>
           <div className={`flex-1 text-center ${step >= 3 ? 'text-primary' : ''}`}>3. Confirm Details</div>
-          <div className="w-8 border-t border-gray-300 dark:border-gray-600"></div>
+          <div className="w-8 border-t border-border"></div>
           <div className={`flex-1 text-center ${step >= 4 ? 'text-primary' : ''}`}>4. Complete</div>
         </div>
 
         {/* Step 1: Select Room */}
         {step === 1 && (
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Select a Meeting Room</h2>
+          <div className="bg-card shadow rounded-lg border border-border p-6">
+            <h2 className="text-xl font-semibold text-foreground mb-4">Select a Meeting Room</h2>
             {loadingRooms ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[...Array(4)].map((_, i) => (
@@ -242,14 +242,14 @@ export default function BookingWizardPage() {
             ) : rooms.length === 0 ? (
               <div className="text-center py-8">
                 <BuildingOfficeIcon className="mx-auto h-12 w-12 text-gray-400" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No meeting rooms available</h3>
+                <h3 className="mt-2 text-sm font-medium text-foreground">No meeting rooms available</h3>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {rooms.map((room) => (
-                  <div key={room._id} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors" onClick={() => handleRoomSelect(room)}>
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-white">{room.name}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Capacity: {room.capacity}</p>
+                  <div key={room._id} className="border border-border rounded-lg p-4 cursor-pointer hover:bg-muted transition-colors" onClick={() => handleRoomSelect(room)}>
+                    <h3 className="text-lg font-medium text-foreground">{room.name}</h3>
+                    <p className="text-sm text-muted-foreground">Capacity: {room.capacity}</p>
                     {room.images.length > 0 && <img src={room.images[0].url} alt={room.name} className="mt-2 w-full h-24 object-cover rounded-md" />}
                   </div>
                 ))}
@@ -260,43 +260,43 @@ export default function BookingWizardPage() {
 
         {/* Step 2: Select Date & Time */}
         {step === 2 && selectedRoom && (
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Book for {selectedRoom.name}</h2>
+          <div className="bg-card shadow rounded-lg border border-border p-6">
+            <h2 className="text-xl font-semibold text-foreground mb-4">Book for {selectedRoom.name}</h2>
 
             <div className="mb-4">
-              <label htmlFor="booking-date" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="booking-date" className="block text-sm font-medium text-secondary-foreground">
                 Select Date
               </label>
-              {mounted ? <input type="date" id="booking-date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedDate} onChange={handleDateChange} min={format(new Date(), 'yyyy-MM-dd')} /> : <input type="date" id="booking-date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value="" onChange={handleDateChange} min={format(new Date(), 'yyyy-MM-dd')} />}
+              {mounted ? <input type="date" id="booking-date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedDate} onChange={handleDateChange} min={format(new Date(), 'yyyy-MM-dd')} /> : <input type="date" id="booking-date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value="" onChange={handleDateChange} min={format(new Date(), 'yyyy-MM-dd')} />}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
-                <label htmlFor="start-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="start-time" className="block text-sm font-medium text-secondary-foreground">
                   Start Time
                 </label>
-                <input type="time" id="start-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedStartTime} onChange={(e) => handleTimeChange('start', e.target.value)} required />
+                <input type="time" id="start-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedStartTime} onChange={(e) => handleTimeChange('start', e.target.value)} required />
               </div>
               <div>
-                <label htmlFor="end-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="end-time" className="block text-sm font-medium text-secondary-foreground">
                   End Time
                 </label>
-                <input type="time" id="end-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedEndTime} onChange={(e) => handleTimeChange('end', e.target.value)} required />
+                <input type="time" id="end-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedEndTime} onChange={(e) => handleTimeChange('end', e.target.value)} required />
               </div>
             </div>
 
             {loadingSlots ? (
               <div className="text-center py-4">
                 <ArrowPathIcon className="mx-auto h-8 w-8 animate-spin text-primary" />
-                <p className="text-sm text-gray-500 dark:text-gray-400">Loading booked slots...</p>
+                <p className="text-sm text-muted-foreground">Loading booked slots...</p>
               </div>
             ) : (
               bookedSlots.length > 0 && (
                 <div className="mb-4">
-                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Booked Slots for {format(parseISO(selectedDate), 'MMM dd, yyyy')}:</p>
+                  <p className="text-sm font-medium text-secondary-foreground mb-2">Booked Slots for {format(parseISO(selectedDate), 'MMM dd, yyyy')}:</p>
                   <div className="flex flex-wrap gap-2">
                     {bookedSlots.map((slot, index) => (
-                      <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+                      <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400">
                         {convertToAMPM(slot.start)} - {convertToAMPM(slot.end)}
                       </span>
                     ))}
@@ -306,7 +306,7 @@ export default function BookingWizardPage() {
             )}
 
             {bookingError && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4 mb-4">
+              <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -322,7 +322,7 @@ export default function BookingWizardPage() {
             )}
 
             <div className="flex justify-between mt-6">
-              <button onClick={() => setStep(1)} className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setStep(1)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Previous
               </button>
               <button onClick={() => setStep(3)} disabled={!selectedStartTime || !selectedEndTime || !isValidTimeRange(selectedStartTime, selectedEndTime) || isTimeSlotBooked(selectedStartTime, selectedEndTime)} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed">
@@ -334,10 +334,10 @@ export default function BookingWizardPage() {
 
         {/* Step 3: Confirm Details */}
         {step === 3 && selectedRoom && (
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Confirm Your Booking</h2>
+          <div className="bg-card shadow rounded-lg border border-border p-6">
+            <h2 className="text-xl font-semibold text-foreground mb-4">Confirm Your Booking</h2>
 
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
+            <div className="space-y-4 text-secondary-foreground">
               <p>
                 <strong>Room:</strong> {selectedRoom.name}
               </p>
@@ -348,15 +348,15 @@ export default function BookingWizardPage() {
                 <strong>Time:</strong> {selectedStartTime} - {selectedEndTime}
               </p>
               <div>
-                <label htmlFor="purpose" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="purpose" className="block text-sm font-medium text-secondary-foreground">
                   Purpose (Optional)
                 </label>
-                <textarea id="purpose" rows={3} className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={purpose} onChange={(e) => setPurpose(e.target.value)}></textarea>
+                <textarea id="purpose" rows={3} className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={purpose} onChange={(e) => setPurpose(e.target.value)}></textarea>
               </div>
             </div>
 
             {bookingError && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4 mt-4">
+              <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mt-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -372,7 +372,7 @@ export default function BookingWizardPage() {
             )}
 
             <div className="flex justify-between mt-6">
-              <button onClick={() => setStep(2)} className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+              <button onClick={() => setStep(2)} className="px-4 py-2 border border-border rounded-md shadow-sm text-sm font-medium text-secondary-foreground bg-muted hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                 Previous
               </button>
               <button onClick={handleBookingSubmit} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
@@ -384,10 +384,10 @@ export default function BookingWizardPage() {
 
         {/* Step 4: Complete */}
         {step === 4 && (
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6 text-center">
+          <div className="bg-card shadow rounded-lg border border-border p-6 text-center">
             <CheckCircleIcon className="mx-auto h-16 w-16 text-green-500 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Booking Successful!</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">{successMessage}</p>
+            <h2 className="text-xl font-semibold text-foreground mb-2">Booking Successful!</h2>
+            <p className="text-secondary-foreground mb-6">{successMessage}</p>
             <Link href="/" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               Go to Dashboard
             </Link>

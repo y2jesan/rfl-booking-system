@@ -241,8 +241,8 @@ export default function AdminUsersPage() {
       <AdminLayout>
         <div className="text-center py-12">
           <ExclamationCircleIcon className="mx-auto h-12 w-12 text-red-500" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Access Denied</h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">You do not have permission to view this page.</p>
+          <h3 className="mt-2 text-lg font-medium text-foreground">Access Denied</h3>
+          <p className="mt-1 text-sm text-muted-foreground">You do not have permission to view this page.</p>
         </div>
       </AdminLayout>
     );
@@ -254,8 +254,8 @@ export default function AdminUsersPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">User Management</h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Manage system users and their roles</p>
+            <h1 className="text-2xl font-bold text-foreground">User Management</h1>
+            <p className="mt-1 text-sm text-muted-foreground">Manage system users and their roles</p>
           </div>
           <div className="flex items-center space-x-2">
             {/* Mobile Add User Button */}
@@ -272,19 +272,19 @@ export default function AdminUsersPage() {
         </div>
 
         {/* User List */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700">
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-            <h2 className="text-lg font-medium text-gray-900 dark:text-white">All Users</h2>
+        <div className="bg-card shadow rounded-lg border border-border">
+          <div className="px-6 py-4 border-b border-border flex items-center justify-between">
+            <h2 className="text-lg font-medium text-foreground">All Users</h2>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
               </div>
-              <input type="text" className="block w-48 sm:w-64 pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm" placeholder="Search users by email..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+              <input type="text" className="block w-48 sm:w-64 pl-10 pr-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground text-sm" placeholder="Search users by email..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
           </div>
           <div className="p-6">
             {error && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4 mb-4">
+              <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -299,7 +299,7 @@ export default function AdminUsersPage() {
               </div>
             )}
             {modalSuccess && (
-              <div className="rounded-md bg-green-50 dark:bg-green-900/20 p-4 mb-4">
+              <div className="rounded-md bg-green-50 dark:bg-green-900/10 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
@@ -316,24 +316,24 @@ export default function AdminUsersPage() {
             {users.length === 0 ? (
               <div className="text-center py-8">
                 <UsersIcon className="mx-auto h-12 w-12 text-gray-400" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No users found</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Add new users to the system.</p>
+                <h3 className="mt-2 text-sm font-medium text-foreground">No users found</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Add new users to the system.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-700">
+                  <thead className="bg-muted">
                     <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Email
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Role
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Created At
                       </th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                         Status
                       </th>
                       <th scope="col" className="relative px-6 py-3">
@@ -341,20 +341,20 @@ export default function AdminUsersPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tbody className="bg-card divide-y divide-gray-200 dark:divide-gray-700">
                     {users.map((user) => (
                       <tr key={user._id}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm font-medium text-gray-900 dark:text-white">{user.email}</div>
+                          <div className="text-sm font-medium text-foreground">{user.email}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-primary/10 text-primary">{user.role}</span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{format(new Date(user.createdAt), 'MMM dd, yyyy hh:mm a')}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-muted-foreground">{format(new Date(user.createdAt), 'MMM dd, yyyy hh:mm a')}</td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${user.isActive ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' : 'bg-primary/10 text-primary'}`}>{user.isActive ? 'Active' : 'Inactive'}</span>
+                          <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${user.isActive ? 'bg-green-100 text-green-800 dark:bg-green-900/10 dark:text-green-400' : 'bg-primary/10 text-primary'}`}>{user.isActive ? 'Active' : 'Inactive'}</span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium ">
                           <div className="flex items-center space-x-2">
                             <Tooltip content="Edit User">
                               <button onClick={() => handleEditUser(user)} className="text-primary hover:text-primary/80">
@@ -386,27 +386,27 @@ export default function AdminUsersPage() {
       {/* Add/Edit User Modal */}
       {showAddEditModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">{currentUser ? 'Edit User' : 'Add New User'}</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentUser ? 'Edit User' : 'Add New User'}</h3>
             <div className="mt-2 space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="email" className="block text-sm font-medium text-secondary-foreground">
                   Email
                 </label>
-                <input type="email" id="email" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} required />
+                <input type="email" id="email" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} required />
               </div>
               <div>
-                <label htmlFor="role" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="role" className="block text-sm font-medium text-secondary-foreground">
                   Role
                 </label>
-                <select id="role" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={formRole} onChange={(e) => setFormRole(e.target.value)}>
+                <select id="role" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={formRole} onChange={(e) => setFormRole(e.target.value)}>
                   <option value="USER">User</option>
                   <option value="STAFF">Staff</option>
                   <option value="ADMIN">Admin</option>
                 </select>
               </div>
               {modalError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -422,7 +422,7 @@ export default function AdminUsersPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleSubmitAddEdit}>
                 {currentUser ? 'Save Changes' : 'Add User'}
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowAddEditModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowAddEditModal(false)}>
                 Cancel
               </button>
             </div>
@@ -433,14 +433,14 @@ export default function AdminUsersPage() {
       {/* Toggle User Status Modal */}
       {showToggleModal && currentUser && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">{currentUser.isActive ? 'Deactivate User' : 'Activate User'}</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentUser.isActive ? 'Deactivate User' : 'Activate User'}</h3>
             <div className="mt-2">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-secondary-foreground">
                 Are you sure you want to {currentUser.isActive ? 'deactivate' : 'activate'} user <span className="font-semibold">{currentUser.email}</span>?{currentUser.isActive ? ' Deactivated users cannot access the system.' : ' Activated users can access the system again.'}
               </p>
               {modalError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3 mt-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3 mt-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -456,7 +456,7 @@ export default function AdminUsersPage() {
               <button type="button" className={`inline-flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 sm:col-start-2 sm:text-sm ${currentUser.isActive ? 'bg-red-600 hover:bg-red-700 focus:ring-red-500' : 'bg-green-600 hover:bg-green-700 focus:ring-green-500'}`} onClick={handleSubmitToggle}>
                 {currentUser.isActive ? 'Deactivate User' : 'Activate User'}
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowToggleModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowToggleModal(false)}>
                 Cancel
               </button>
             </div>
@@ -467,14 +467,14 @@ export default function AdminUsersPage() {
       {/* Reset Password Modal */}
       {showResetPasswordModal && currentUser && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">Reset Password for {currentUser.email}</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Reset Password for {currentUser.email}</h3>
             <div className="mt-2 space-y-4">
               <div>
-                <p className="text-sm text-gray-700 dark:text-gray-300">This will generate a new random password for the user. The new password will be displayed after the reset is complete.</p>
+                <p className="text-sm text-secondary-foreground">This will generate a new random password for the user. The new password will be displayed after the reset is complete.</p>
               </div>
               {modalError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -490,7 +490,7 @@ export default function AdminUsersPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleSubmitResetPassword}>
                 Reset Password
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowResetPasswordModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowResetPasswordModal(false)}>
                 Cancel
               </button>
             </div>
@@ -501,27 +501,27 @@ export default function AdminUsersPage() {
       {/* Password Generated Modal */}
       {showPasswordModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">{passwordModalTitle}</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{passwordModalTitle}</h3>
             <div className="mt-2 space-y-4">
               <div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">{passwordModalMessage}</p>
+                <p className="text-sm text-secondary-foreground mb-2">{passwordModalMessage}</p>
                 <div className="flex items-center space-x-2">
-                  <input type="text" id="generated-password" className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono text-sm" value={generatedPassword} readOnly />
+                  <input type="text" id="generated-password" className="flex-1 px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground font-mono text-sm" value={generatedPassword} readOnly />
                   <button
                     type="button"
                     onClick={() => {
                       navigator.clipboard.writeText(generatedPassword);
                       setModalSuccess('Password copied to clipboard!');
                     }}
-                    className="px-3 py-2 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
+                    className="px-3 py-2 bg-gray-100 dark:bg-gray-600 text-secondary-foreground rounded-md hover:bg-gray-200 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-primary">
                     Copy
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Please save this password securely. It will not be shown again.</p>
+                <p className="text-xs text-muted-foreground mt-2">Please save this password securely. It will not be shown again.</p>
               </div>
               {modalError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -533,7 +533,7 @@ export default function AdminUsersPage() {
                 </div>
               )}
               {modalSuccess && (
-                <div className="rounded-md bg-green-50 dark:bg-green-900/20 p-3">
+                <div className="rounded-md bg-green-50 dark:bg-green-900/10 p-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />

@@ -229,8 +229,8 @@ export default function AdminCreateBookingPage() {
       <AdminLayout>
         <div className="text-center py-12">
           <ExclamationCircleIcon className="mx-auto h-12 w-12 text-red-500" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Access Denied</h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">You do not have permission to view this page.</p>
+          <h3 className="mt-2 text-lg font-medium text-foreground">Access Denied</h3>
+          <p className="mt-1 text-sm text-muted-foreground">You do not have permission to view this page.</p>
         </div>
       </AdminLayout>
     );
@@ -241,14 +241,14 @@ export default function AdminCreateBookingPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Booking</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Manually create a booking for a user</p>
+          <h1 className="text-2xl font-bold text-foreground">Create New Booking</h1>
+          <p className="mt-1 text-sm text-muted-foreground">Manually create a booking for a user</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-card shadow rounded-lg border border-border p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             {success && (
-              <div className="rounded-md bg-green-50 dark:bg-green-900/20 p-4">
+              <div className="rounded-md bg-green-50 dark:bg-green-900/10 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
@@ -263,7 +263,7 @@ export default function AdminCreateBookingPage() {
               </div>
             )}
             {error && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4">
+              <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -280,10 +280,10 @@ export default function AdminCreateBookingPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="room" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="room" className="block text-sm font-medium text-secondary-foreground">
                   Meeting Room
                 </label>
-                <select id="room" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} required>
+                <select id="room" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} required>
                   {rooms.map((room) => (
                     <option key={room._id} value={room._id}>
                       {room.name} (Capacity: {room.capacity})
@@ -292,10 +292,10 @@ export default function AdminCreateBookingPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="user" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="user" className="block text-sm font-medium text-secondary-foreground">
                   Book For User
                 </label>
-                <select id="user" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)} required>
+                <select id="user" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)} required>
                   {users.map((u) => (
                     <option key={u._id} value={u._id}>
                       {u.email}
@@ -306,33 +306,33 @@ export default function AdminCreateBookingPage() {
             </div>
 
             <div>
-              <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="date" className="block text-sm font-medium text-secondary-foreground">
                 Date
               </label>
-              {mounted ? <input type="date" id="date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} required /> : <input type="date" id="date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value="" onChange={(e) => setSelectedDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} required />}
+              {mounted ? <input type="date" id="date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} required /> : <input type="date" id="date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value="" onChange={(e) => setSelectedDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} required />}
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="start-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="start-time" className="block text-sm font-medium text-secondary-foreground">
                   Start Time
                 </label>
-                <input type="time" id="start-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={startTime} onChange={(e) => setStartTime(e.target.value)} required />
+                <input type="time" id="start-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={startTime} onChange={(e) => setStartTime(e.target.value)} required />
               </div>
               <div>
-                <label htmlFor="end-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="end-time" className="block text-sm font-medium text-secondary-foreground">
                   End Time
                 </label>
-                <input type="time" id="end-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={endTime} onChange={(e) => setEndTime(e.target.value)} required />
+                <input type="time" id="end-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={endTime} onChange={(e) => setEndTime(e.target.value)} required />
               </div>
             </div>
 
             {bookedSlots.length > 0 && (
               <div>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Booked Slots for {format(parseISO(selectedDate), 'MMM dd, yyyy')}:</p>
+                <p className="text-sm font-medium text-secondary-foreground mb-2">Booked Slots for {format(parseISO(selectedDate), 'MMM dd, yyyy')}:</p>
                 <div className="flex flex-wrap gap-2">
                   {bookedSlots.map((slot, index) => (
-                    <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+                    <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400">
                       {slot.start || slot.startTime || minutesToTime(slot.startMinutes || 0)} - {slot.end || slot.endTime || minutesToTime(slot.endMinutes || 0)}
                     </span>
                   ))}
@@ -341,10 +341,10 @@ export default function AdminCreateBookingPage() {
             )}
 
             <div>
-              <label htmlFor="purpose" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="purpose" className="block text-sm font-medium text-secondary-foreground">
                 Purpose (Optional)
               </label>
-              <textarea id="purpose" rows={3} className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={purpose} onChange={(e) => setPurpose(e.target.value)}></textarea>
+              <textarea id="purpose" rows={3} className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-foreground" value={purpose} onChange={(e) => setPurpose(e.target.value)}></textarea>
             </div>
 
             <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:text-sm" disabled={submitting}>

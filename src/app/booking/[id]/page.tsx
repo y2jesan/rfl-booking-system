@@ -291,17 +291,17 @@ export default function BookingDetailsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'CONFIRMED':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400';
+        return 'bg-green-100 text-green-800 dark:bg-green-900/10 dark:text-green-400';
       case 'PENDING':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400';
+        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/10 dark:text-yellow-400';
       case 'RESCHEDULE_REQUESTED':
-        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400';
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900/10 dark:text-blue-400';
       case 'CANCELLED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       case 'REJECTED':
-        return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+        return 'bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400';
       default:
-        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-900/10 dark:text-gray-400';
     }
   };
 
@@ -322,7 +322,7 @@ export default function BookingDetailsPage() {
       <Layout>
         <div className="text-center py-12">
           <XCircleIcon className="mx-auto h-12 w-12 text-red-500" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Error</h3>
+          <h3 className="mt-2 text-lg font-medium text-accent-foreground">Error</h3>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{error}</p>
         </div>
       </Layout>
@@ -334,7 +334,7 @@ export default function BookingDetailsPage() {
       <Layout>
         <div className="text-center py-12">
           <CalendarIcon className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-white">Booking Not Found</h3>
+          <h3 className="mt-2 text-lg font-medium text-accent-foreground">Booking Not Found</h3>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">The booking you are looking for does not exist or you do not have access.</p>
         </div>
       </Layout>
@@ -350,71 +350,71 @@ export default function BookingDetailsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Booking Details</h1>
+          <h1 className="text-2xl font-bold text-accent-foreground">Booking Details</h1>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Details for booking ID: {booking._id}</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-card shadow rounded-lg border border-border p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Booking Information</h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <h2 className="text-xl font-semibold text-accent-foreground mb-3">Booking Information</h2>
+              <p className="text-secondary-foreground mb-2">
                 <strong>Room:</strong> {booking.roomId.name}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Date:</strong> {format(parseISO(booking.date), 'MMM dd, yyyy')}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Time:</strong> {minutesToTimeAMPM(booking.startMinutes)} - {minutesToTimeAMPM(booking.endMinutes)}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Purpose:</strong> {booking.purpose || 'N/A'}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Status:</strong>
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ml-2 ${getStatusColor(booking.status)}`}>{booking.status.replace('_', ' ')}</span>
-                {booking.status === 'CONFIRMED' && booking.reschedule && <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ml-2 bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">Reschedule: Rejected</span>}
+                {booking.status === 'CONFIRMED' && booking.reschedule && <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ml-2 bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400">Reschedule: Rejected</span>}
               </p>
               {booking.cancelReason && (
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-secondary-foreground mb-2">
                   <strong>Cancellation Reason:</strong> {booking.cancelReason}
                 </p>
               )}
               {booking.rejectReason && (
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-secondary-foreground mb-2">
                   <strong>Rejection Reason:</strong> {booking.rejectReason}
                 </p>
               )}
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Booked By:</strong> {booking.userId.email} ({booking.createdByRole})
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="text-secondary-foreground mb-2">
                 <strong>Booked On:</strong> {format(parseISO(booking.createdAt), 'MMM dd, yyyy hh:mm a')}
               </p>
             </div>
 
             {booking.reschedule && (
               <div>
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Reschedule Request</h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <h2 className="text-xl font-semibold text-accent-foreground mb-3">Reschedule Request</h2>
+                <p className="text-secondary-foreground mb-2">
                   <strong>Requested By:</strong> {typeof booking.reschedule.requestedBy === 'string' ? booking.reschedule.requestedBy : booking.reschedule.requestedBy.email}
                 </p>
                 {booking.reschedule.roomId && (
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">
+                  <p className="text-secondary-foreground mb-2">
                     <strong>New Room:</strong> {typeof booking.reschedule.roomId === 'string' ? booking.reschedule.roomId : booking.reschedule.roomId.name}
                   </p>
                 )}
                 {booking.reschedule.date && (
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">
+                  <p className="text-secondary-foreground mb-2">
                     <strong>New Date:</strong> {format(parseISO(booking.reschedule.date), 'MMM dd, yyyy')}
                   </p>
                 )}
                 {booking.reschedule.startMinutes !== undefined && booking.reschedule.endMinutes !== undefined && (
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">
+                  <p className="text-secondary-foreground mb-2">
                     <strong>New Time:</strong> {minutesToTimeAMPM(booking.reschedule.startMinutes)} - {minutesToTimeAMPM(booking.reschedule.endMinutes)}
                   </p>
                 )}
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-secondary-foreground mb-2">
                   <strong>Requested At:</strong> {format(parseISO(booking.reschedule.requestedAt), 'MMM dd, yyyy hh:mm a')}
                 </p>
               </div>
@@ -441,14 +441,14 @@ export default function BookingDetailsPage() {
       {/* Reschedule Modal */}
       {showRescheduleModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">Reschedule Booking</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-accent-foreground mb-4">Reschedule Booking</h3>
             <div className="mt-2 space-y-4">
               <div>
-                <label htmlFor="reschedule-room" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="reschedule-room" className="block text-sm font-medium text-secondary-foreground">
                   Select Room
                 </label>
-                <select id="reschedule-room" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={newRescheduleRoomId} onChange={(e) => setNewRescheduleRoomId(e.target.value)}>
+                <select id="reschedule-room" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value={newRescheduleRoomId} onChange={(e) => setNewRescheduleRoomId(e.target.value)}>
                   <option value="">Select a room</option>
                   {availableRooms.map((room) => (
                     <option key={room._id} value={room._id}>
@@ -458,23 +458,23 @@ export default function BookingDetailsPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="reschedule-date" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="reschedule-date" className="block text-sm font-medium text-secondary-foreground">
                   New Date
                 </label>
-                {mounted ? <input type="date" id="reschedule-date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={newRescheduleDate} onChange={(e) => setNewRescheduleDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} /> : <input type="date" id="reschedule-date" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value="" onChange={(e) => setNewRescheduleDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} />}
+                {mounted ? <input type="date" id="reschedule-date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value={newRescheduleDate} onChange={(e) => setNewRescheduleDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} /> : <input type="date" id="reschedule-date" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value="" onChange={(e) => setNewRescheduleDate(e.target.value)} min={format(new Date(), 'yyyy-MM-dd')} />}
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="reschedule-start-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <label htmlFor="reschedule-start-time" className="block text-sm font-medium text-secondary-foreground">
                     New Start Time
                   </label>
-                  <input type="time" id="reschedule-start-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={newRescheduleStartTime} onChange={(e) => setNewRescheduleStartTime(e.target.value)} required />
+                  <input type="time" id="reschedule-start-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value={newRescheduleStartTime} onChange={(e) => setNewRescheduleStartTime(e.target.value)} required />
                 </div>
                 <div>
-                  <label htmlFor="reschedule-end-time" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <label htmlFor="reschedule-end-time" className="block text-sm font-medium text-secondary-foreground">
                     New End Time
                   </label>
-                  <input type="time" id="reschedule-end-time" className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={newRescheduleEndTime} onChange={(e) => setNewRescheduleEndTime(e.target.value)} required />
+                  <input type="time" id="reschedule-end-time" className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value={newRescheduleEndTime} onChange={(e) => setNewRescheduleEndTime(e.target.value)} required />
                 </div>
               </div>
               {loadingSlots ? (
@@ -485,10 +485,10 @@ export default function BookingDetailsPage() {
               ) : (
                 bookedSlots.length > 0 && (
                   <div className="mb-2">
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Booked Slots for {format(parseISO(newRescheduleDate), 'MMM dd, yyyy')}:</p>
+                    <p className="text-sm font-medium text-secondary-foreground mb-1">Booked Slots for {format(parseISO(newRescheduleDate), 'MMM dd, yyyy')}:</p>
                     <div className="flex flex-wrap gap-1">
                       {bookedSlots.map((slot, index) => (
-                        <span key={index} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+                        <span key={index} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/10 dark:text-red-400">
                           {convertToAMPM(slot.start)} - {convertToAMPM(slot.end)}
                         </span>
                       ))}
@@ -497,7 +497,7 @@ export default function BookingDetailsPage() {
                 )
               )}
               {rescheduleError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -513,7 +513,7 @@ export default function BookingDetailsPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleReschedule} disabled={!newRescheduleRoomId || !newRescheduleDate || !newRescheduleStartTime || !newRescheduleEndTime || !isValidTimeRange(newRescheduleStartTime, newRescheduleEndTime) || isTimeSlotBooked(newRescheduleStartTime, newRescheduleEndTime)}>
                 Submit Reschedule Request
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowRescheduleModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowRescheduleModal(false)}>
                 Cancel
               </button>
             </div>
@@ -524,17 +524,17 @@ export default function BookingDetailsPage() {
       {/* Cancel Modal */}
       {showCancelModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-4">Cancel Booking</h3>
+          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+            <h3 className="text-lg font-medium leading-6 text-accent-foreground mb-4">Cancel Booking</h3>
             <div className="mt-2">
               <div>
-                <label htmlFor="cancel-reason" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="cancel-reason" className="block text-sm font-medium text-secondary-foreground">
                   Reason for Cancellation
                 </label>
-                <textarea id="cancel-reason" rows={3} className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" value={cancelReason} onChange={(e) => setCancelReason(e.target.value)}></textarea>
+                <textarea id="cancel-reason" rows={3} className="mt-1 block w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-muted text-accent-foreground" value={cancelReason} onChange={(e) => setCancelReason(e.target.value)}></textarea>
               </div>
               {cancelError && (
-                <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3 mt-3">
+                <div className="rounded-md bg-red-50 dark:bg-red-900/10 p-3 mt-3">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <ExclamationCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
@@ -550,7 +550,7 @@ export default function BookingDetailsPage() {
               <button type="button" className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm" onClick={handleCancel}>
                 Confirm Cancellation
               </button>
-              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowCancelModal(false)}>
+              <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-border bg-muted px-4 py-2 text-base font-medium text-secondary-foreground shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm" onClick={() => setShowCancelModal(false)}>
                 Cancel
               </button>
             </div>

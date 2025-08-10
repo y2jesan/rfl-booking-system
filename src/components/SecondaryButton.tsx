@@ -26,10 +26,10 @@ export default function SecondaryButton({
   const baseClasses = `
     inline-flex items-center justify-center
     font-medium rounded-md
-    bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300
-    border border-gray-300 dark:border-gray-600
-    hover:bg-gray-50 dark:hover:bg-gray-700
-    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+    bg-secondary text-secondary-foreground
+    border border-border
+    hover:bg-secondary/80
+    focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed
     transition-all duration-300 ease-in-out
     hover:transform hover:-translate-y-0.5
