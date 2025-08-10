@@ -231,7 +231,7 @@ export default function BookingWizardPage() {
 
         {/* Step 1: Select Room */}
         {step === 1 && (
-          <div className="bg-card shadow rounded-lg border border-border p-6">
+          <div className="bg-card shadow rounded-lg border border-border p-4 lg:p-6">
             <h2 className="text-xl font-semibold text-foreground mb-4">Select a Meeting Room</h2>
             {loadingRooms ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -245,12 +245,18 @@ export default function BookingWizardPage() {
                 <h3 className="mt-2 text-sm font-medium text-foreground">No meeting rooms available</h3>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {rooms.map((room) => (
-                  <div key={room._id} className="border border-border rounded-lg p-4 cursor-pointer hover:bg-muted transition-colors" onClick={() => handleRoomSelect(room)}>
-                    <h3 className="text-lg font-medium text-foreground">{room.name}</h3>
-                    <p className="text-sm text-muted-foreground">Capacity: {room.capacity}</p>
-                    {room.images.length > 0 && <img src={room.images[0].url} alt={room.name} className="mt-2 w-full h-24 object-cover rounded-md" />}
+                  <div key={room._id} className="lg:flex lg:justify-between border border-border rounded-lg p-2 cursor-pointer hover:bg-muted transition-colors" onClick={() => handleRoomSelect(room)}>
+                    <div className='lg:my-auto'>
+                      <h3 className="text-lg font-medium text-foreground">{room.name}</h3>
+                      <p className="text-sm text-muted-foreground">Capacity: {room.capacity}</p>
+                    </div>
+                    {room.images.length > 0 ? <img src={room.images[0].url} alt={room.name} className="lg:w-1/2 w-full h-24 mt-2 lg:mt-0 object-cover rounded-md" /> : 
+                    <div className="lg:w-1/2 h-24 mt-2 lg:mt-0 bg-muted flex items-center justify-center rounded-md">
+                      <BuildingOfficeIcon className="h-12 w-12 text-gray-400" />
+                    </div>
+                    }
                   </div>
                 ))}
               </div>
