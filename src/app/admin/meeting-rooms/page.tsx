@@ -306,15 +306,15 @@ export default function AdminMeetingRoomsPage() {
             <p className="mt-1 text-sm text-muted-foreground">Manage meeting rooms and their details</p>
           </div>
           <div className="flex items-center space-x-2">
-            {/* Mobile Add Booking Button */}
+            {/* Mobile Add Room Button */}
             <button onClick={handleAddRoom} className="sm:hidden inline-flex items-center justify-center w-10 h-10 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               <PlusIcon className="h-5 w-5" />
             </button>
 
-            {/* Desktop Add Booking Button */}
+            {/* Desktop Add Room Button */}
             <button onClick={handleAddRoom} className="hidden sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
               <PlusIcon className="h-5 w-5 mr-2" />
-              Add Booking
+              Add Room
             </button>
           </div>
         </div>
@@ -434,9 +434,9 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Add/Edit Room Modal */}
       {showAddEditModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50">
+        <div className="fixed inset-0 bg-transparent overflow-y-auto h-full w-full z-50">
           <div className="min-h-full flex items-center justify-center p-4">
-            <div className="relative bg-card rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative bg-card border border-border rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="p-6">
                 <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentRoom ? 'Edit Meeting Room' : 'Add New Meeting Room'}</h3>
                 <div className="mt-2 space-y-4">
@@ -551,8 +551,8 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Toggle Room Status Modal */}
       {showDeleteModal && currentRoom && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative bg-card border border-border p-8 rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentRoom.isActive ? 'Deactivate' : 'Activate'} Meeting Room</h3>
             <div className="mt-2">
               <p className="text-sm text-secondary-foreground">
@@ -585,8 +585,8 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Image Upload Modal */}
       {showImageUploadModal && currentRoom && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-2xl w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-2xl w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Upload Images for {currentRoom.name}</h3>
             <div className="mt-2 space-y-4">
               <div>

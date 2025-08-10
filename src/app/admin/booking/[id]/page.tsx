@@ -567,8 +567,8 @@ export default function BookingDetailsPage() {
 
       {/* Reschedule Modal */}
       {showRescheduleModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Reschedule Booking</h3>
             <div className="mt-2 space-y-4">
               <div>
@@ -650,8 +650,8 @@ export default function BookingDetailsPage() {
 
       {/* Cancel Modal */}
       {showCancelModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Cancel Booking</h3>
             <div className="mt-2">
               <div>
@@ -687,8 +687,8 @@ export default function BookingDetailsPage() {
 
       {/* Reject Modal */}
       {showRejectModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Reject Booking</h3>
             <div className="mt-2">
               <div>

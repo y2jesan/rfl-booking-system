@@ -421,35 +421,31 @@ export default function BookingDetailsPage() {
             )}
           </div>
           <div className="flex justify-between items-center mt-8">
-            <button 
-              onClick={() => router.back()} 
-              className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" 
-              title="Go Back"
-            >
+            <button onClick={() => router.back()} className="inline-flex items-center p-2 border border-border rounded-md text-secondary-foreground bg-muted hover:bg-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" title="Go Back">
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
-          <div className="flex flex-wrap gap-4 justify-end">
-            {isBookingCancellable && (
-              <button onClick={() => setShowCancelModal(true)} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                <XCircleIcon className="h-5 w-5 mr-2" />
-                Cancel
-              </button>
-            )}
-            {isBookingReschedulable && (
-              <button onClick={() => setShowRescheduleModal(true)} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                <ArrowPathIcon className="h-5 w-5" />
-                Reschedule
-              </button>
-            )}
-          </div>
+            <div className="flex flex-wrap gap-4 justify-end">
+              {isBookingCancellable && (
+                <button onClick={() => setShowCancelModal(true)} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                  <XCircleIcon className="h-5 w-5 mr-2" />
+                  Cancel
+                </button>
+              )}
+              {isBookingReschedulable && (
+                <button onClick={() => setShowRescheduleModal(true)} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                  <ArrowPathIcon className="h-5 w-5" />
+                  Reschedule
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Reschedule Modal */}
       {showRescheduleModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-accent-foreground mb-4">Reschedule Booking</h3>
             <div className="mt-2 space-y-4">
               <div>
@@ -531,8 +527,8 @@ export default function BookingDetailsPage() {
 
       {/* Cancel Modal */}
       {showCancelModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-accent-foreground mb-4">Cancel Booking</h3>
             <div className="mt-2">
               <div>

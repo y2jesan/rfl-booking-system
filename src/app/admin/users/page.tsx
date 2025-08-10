@@ -385,8 +385,8 @@ export default function AdminUsersPage() {
 
       {/* Add/Edit User Modal */}
       {showAddEditModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentUser ? 'Edit User' : 'Add New User'}</h3>
             <div className="mt-2 space-y-4">
               <div>
@@ -432,8 +432,8 @@ export default function AdminUsersPage() {
 
       {/* Toggle User Status Modal */}
       {showToggleModal && currentUser && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentUser.isActive ? 'Deactivate User' : 'Activate User'}</h3>
             <div className="mt-2">
               <p className="text-sm text-secondary-foreground">
@@ -466,8 +466,8 @@ export default function AdminUsersPage() {
 
       {/* Reset Password Modal */}
       {showResetPasswordModal && currentUser && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Reset Password for {currentUser.email}</h3>
             <div className="mt-2 space-y-4">
               <div>
@@ -500,8 +500,8 @@ export default function AdminUsersPage() {
 
       {/* Password Generated Modal */}
       {showPasswordModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
-          <div className="relative p-8 bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
+        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+          <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{passwordModalTitle}</h3>
             <div className="mt-2 space-y-4">
               <div>
