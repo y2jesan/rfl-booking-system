@@ -434,7 +434,7 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Add/Edit Room Modal */}
       {showAddEditModal && (
-        <div className="fixed inset-0 bg-transparent overflow-y-auto h-full w-full z-50">
+        <div className="fixed inset-0 bg-black/60 overflow-y-auto h-full w-full z-50">
           <div className="min-h-full flex items-center justify-center p-4">
             <div className="relative bg-card border border-border rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="p-6">
@@ -551,7 +551,7 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Toggle Room Status Modal */}
       {showDeleteModal && currentRoom && (
-        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-black/60 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
           <div className="relative bg-card border border-border p-8 rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{currentRoom.isActive ? 'Deactivate' : 'Activate'} Meeting Room</h3>
             <div className="mt-2">
@@ -585,7 +585,7 @@ export default function AdminMeetingRoomsPage() {
 
       {/* Image Upload Modal */}
       {showImageUploadModal && currentRoom && (
-        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-black/60 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
           <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-2xl w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">Upload Images for {currentRoom.name}</h3>
             <div className="mt-2 space-y-4">

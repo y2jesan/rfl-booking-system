@@ -413,7 +413,7 @@ export default function AdminBookingsPage() {
 
       {/* Confirm/Reject Modal */}
       {showConfirmRejectModal && currentBooking && confirmRejectAction && (
-        <div className="fixed inset-0 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-black/60 overflow-y-auto h-full w-full z-50 flex justify-center items-center">
           <div className="relative p-8 border border-border bg-card rounded-lg shadow-xl max-w-md w-full mx-auto">
             <h3 className="text-lg font-medium leading-6 text-foreground mb-4">{confirmRejectAction === 'confirm' ? 'Confirm Booking' : confirmRejectAction === 'reject' ? 'Reject Booking' : confirmRejectAction === 'approve_reschedule' ? 'Approve Reschedule' : 'Reject Reschedule'}</h3>
             <div className="mt-2">
